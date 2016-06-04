@@ -26,7 +26,7 @@ connect(Count) when Count > 0 ->
 connect(0) -> ok.
 
 send() ->
-  {ok, Socket} = gen_tcp:connect("localhost", ?Port, [{active, false}, {packet, 2}]),
+  {ok, Socket} = gen_tcp:connect("localhost", ?Port, [binary, {packet, 0}, {active, false}]),
 
   statistics(runtime),
   statistics(wall_clock),
